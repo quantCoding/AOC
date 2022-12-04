@@ -5,11 +5,11 @@ parts = file.split("\n")
 sum_priorities = 0
 for line in parts:
     first_part, second_part = line.strip()[:len(line) // 2], line.strip()[len(line) // 2:]
-    e = set(first_part).intersection(set(second_part)).pop()
+    e = (set(first_part) & set(second_part)).pop()
     if e >= "a":
         sum_priorities += ord(e) - ord("a") + 1
     else:
-        sum_priorities += ord(e) - ord("A") + 27
+        sum_priorities += ord(e) - ord("A") + 26 + 1
 
 print(sum_priorities)
 sum_priorities = 0
@@ -20,10 +20,10 @@ index = 0
 while index < len(parts):
     elf_one, elf_two, elf_three = parts[index: index + 3]
     index += 3
-    e = set(elf_one).intersection(set(elf_two)).intersection(set(elf_three)).pop()  # elf_one & ....
+    e = (set(elf_one) & set(elf_two) & set(elf_three)).pop()
     if e >= "a":
         sum_priorities += ord(e) - ord("a") + 1
     else:
-        sum_priorities += ord(e) - ord("A") + 27
+        sum_priorities += ord(e) - ord("A") + 26 + 1
 
 print(sum_priorities)
