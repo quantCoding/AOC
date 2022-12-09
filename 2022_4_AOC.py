@@ -30,7 +30,7 @@ index = 0
 
 # part two
 while index < len(section_one):
-    overlapping_numbers = set(x for x in range (section_one[index][0], section_one[index][1] + 1)).intersection(set(x for x in range(section_two[index][0], section_two[index][1] + 1)))
+    overlapping_numbers = set(range (section_one[index][0], section_one[index][1] + 1)) & set(range(section_two[index][0], section_two[index][1] + 1))
     if len(overlapping_numbers) > 0:
         counter_section += 1
 
